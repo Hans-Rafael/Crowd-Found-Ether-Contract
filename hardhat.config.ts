@@ -8,6 +8,7 @@ const PRIVATE_KEY = vars.get("PRIVATE_KEY") || ""; // Clave privada de tu cuenta
 const ETHERSCAN_API_KEY = vars.get("ETHERSCAN_API_KEY") || ""; // API Key de Etherscan
 
 const config: HardhatUserConfig = {
+  //solidity: "0.8.26",
   solidity: {
     version: "0.8.26", // Especifica la versión de Solidity
     settings: {
@@ -17,20 +18,22 @@ const config: HardhatUserConfig = {
       },
     },
   },
+  networks: {
+    sepolia: {
+      url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
+      accounts: [`0x${PRIVATE_KEY}`], // Clave privada para la cuenta MetaMask
+    },
+  },
   paths: {
     sources: "./contracts", // Ruta al directorio de contratos
     artifacts: "./artifacts", // Ruta al directorio de artefactos
     tests: "./test", // Ruta al directorio de pruebas
     cache: "./cache", // Ruta al directorio de caché
   },
-  networks: {
-    Sepolia: {
-      url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
-      accounts: [PRIVATE_KEY], // Clave privada para la cuenta MetaMask
-    },
-  },
+  
   etherscan: {
-    apiKey: ETHERSCAN_API_KEY, // API Key de Etherscan para Validaciones
+    apiKey: ETHERSCAN_API_KEY, // API Key de Etherscan para Validaciones npm install --save-dev @nomiclabs/hardhat-etherscan
+
   },
   mocha: {
     timeout: 40000, // Tiempo de espera para las pruebas
