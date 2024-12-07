@@ -25,8 +25,8 @@ const config: HardhatUserConfig = {
   },
   networks: {
     Sepolia: {
-      url: `https://eth-sepolia.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [], // Clave privada para la cuenta MetaMask
+      url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
+      accounts: [PRIVATE_KEY], // Clave privada para la cuenta MetaMask
     },
   },
   etherscan: {
