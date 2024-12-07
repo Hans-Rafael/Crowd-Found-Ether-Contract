@@ -35,6 +35,13 @@ const config: HardhatUserConfig = {
     apiKey: ETHERSCAN_API_KEY, // API Key de Etherscan para Validaciones npm install --save-dev @nomiclabs/hardhat-etherscan
 
   },
+  //npx hardhat verify --network sepolia <contract_address> --constructor-args <constructor_args>
+  //en este caso <contract_address>: Es la dirección del contrato desplegado
+  //<constructor_args>: Los argumentos del constructor del contrato en este caso:  la dirección del propietario inicial y el suministro de tokens
+  //para este ejemplo ya deployado: npx hardhat verify --network sepolia 0x8245fBCab55BBa7e68f6b721Fcb28A6461868EB1 "0xYourOwnerAddressHere" 1000000
+  // y para verificar CrowdFund npx hardhat verify --network sepolia 0x59FEfD01825e0407AfD223Bd18C667095d64bA84 "0x8245fBCab55BBa7e68f6b721Fcb28A6461868EB1"
+
+
   mocha: {
     timeout: 40000, // Tiempo de espera para las pruebas
   },
