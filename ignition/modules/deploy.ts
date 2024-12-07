@@ -1,5 +1,5 @@
 //*** Con hardhat-ignition npm install @nomicfoundation/hardhat-ignition*****/
-import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";//remember import in hardhat.config 
 import { vars } from "hardhat/config";
 
 // Definir parámetros
