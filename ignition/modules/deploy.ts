@@ -1,24 +1,24 @@
 //*** Con hardhat-ignition npm install @nomicfoundation/hardhat-ignition*****/
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+import { vars } from "hardhat/config";
 
-// Construimos el módulo de despliegue
-const DeployModule = buildModule("DeployModule", (m) => {
-  // Dirección del propietario inicial del token
-  const tokenOwnerAddress = m.getParameter(
-    "tokenOwner",
-    "0xYourTokenOwnerAddressHere"
-  );
+// Definir parámetros
+// Variables de configuración ( npx hardhat vars set <variable>  )
+const INITIAL_OWNER = vars.get("INITIAL_OWNER") || "0xYourWalletAddressHere"; // Dirección del propietario inicial
+const INITIAL_SUPPLY = 1000000; // Suministro inicial de tokens (por ejemplo, 1,000,000 tokens)
 
-  // Desplegar el contrato MyToken con la dirección del propietario
-  const token = m.contract("MyToken", [tokenOwnerAddress]);
+const LockModule = buildModule("TokenCrowdFundModule", (m) => {
+  // Desplegar el contrato del token
+  const token = m.contract("HeroicDonationPay", [INITIAL_OWNER, INITIAL_SUPPLY]);
 
-  // Desplegar el contrato CrowdFund pasando la dirección del contrato token recién desplegado
-  const crowdFund = m.contract("CrowdFund", [token.address]);
+  // Desplegar el contrato de CrowdFund, pasando la dirección del token
+  const crowdFund = m.contract("CrowdFund", [token]);
 
   return { token, crowdFund };
 });
 
-export default DeployModule;
+export default LockModule;
+
 
 //********Basic style**********/
 /* import { ethers } from "hardhat";
