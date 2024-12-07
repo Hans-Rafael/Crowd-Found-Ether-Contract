@@ -1,5 +1,6 @@
 import { HardhatUserConfig, vars } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomicfoundation/hardhat-ignition"; // Necesario para Hardhat Ignition
 
 // Variables de configuración ( npx hardhat vars set <variable>  )
 const ALCHEMY_API_KEY = vars.get("ALCHEMY_API_KEY") || ""; // API Key de Alchemy
