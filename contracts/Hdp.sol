@@ -11,7 +11,7 @@ contract HeroicDonationPay is ERC20, Ownable, ERC20Permit {
     constructor(address initialOwner, uint256 initialSupply)
         ERC20("Heroic Donation Pay", "HDP")
         Ownable(initialOwner)
-        ERC20Permit(""Heroic Donation Pay"")
+        ERC20Permit("Heroic Donation Pay")
     {
         _mint(msg.sender, initialSupply * 10**decimals());
     }
