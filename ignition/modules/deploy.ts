@@ -18,7 +18,8 @@ const LockModule = buildModule("TokenCrowdFundModule", (m) => {
 });
 
 export default LockModule;
-//deploy: npx hardhat run --network sepolia deploy.ts
+//deploy: npx hardhat ignition deploy ./ignition/modules/deploy.ts --network sepolia
+
 
 
 //********Basic style**********/

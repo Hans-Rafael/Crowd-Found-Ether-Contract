@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.22;
+pragma solidity 0.8.26;
 // Compatible with OpenZeppelin Contracts ^5.0.0
 //@Author: Hans Garcia.
 
